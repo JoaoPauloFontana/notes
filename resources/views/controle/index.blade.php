@@ -19,23 +19,23 @@
                     <th>Texto</th>
                     <th width="200">Ações</th>
                 </tr>
-                @foreach ($users as $user)
-                    @foreach ($user->notas as $notas)
+                @foreach ($users->notas as $nota)
+                    {{-- @foreach ($user->notas as $notas) --}}
                     {{-- @dd($user->notas) --}}
-                        @if ($user->id == $userLogged->id)
+                        {{-- @if ($user->id == $userLogged->id) --}}
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{ $notas->name }}</td>
-                                <td>{{ $notas->text }}</td>
+                                <td>{{ $nota['name'] }}</td>
+                                <td>{{ $nota['text'] }}</td>
                                 <td></td>
                             </tr>
-                        @endif
-                    @endforeach
+                        {{-- @endif --}}
+                    {{-- @endforeach --}}
                 @endforeach
             </table>
         </div>
     </div>
 
-    {{ $users->links('pagination::bootstrap-4') }}
+    {{-- {{ $users->notas->links('pagination::bootstrap-4') }} --}}
 
 @endsection
