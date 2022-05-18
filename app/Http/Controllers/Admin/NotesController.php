@@ -17,15 +17,13 @@ class NotesController extends Controller
     }
 
     public function index(){
-        $data = ['users', 'userLogged', 'i'];
+        $data = ['i'];
 
-        $users = User::find(Auth::id())->with('notas')->paginate(5);
-
-        $userLogged = auth()->user();
+        $users = User::find(Auth::id());
 
         $i = 1;
 
-        return view('controle.index', compact($data));
+        return view('controle.index', compact($data))->with('users', $users);
     }
 
     public function create(){
