@@ -247,7 +247,7 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            'text'        => 'Notas',
             'url'         => 'painel/notes',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
