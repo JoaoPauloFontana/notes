@@ -67,11 +67,11 @@ Alternative installation is possible without local dependencies relying on [Dock
 
 Clone the repository
 
-    git clone git@github.com:Shaiqna/CMS-in-laravel.git
+    git clone git@github.com:Shaiqna/notes.git
 
 Switch to the repo folder
 
-    cd CMS-in-laravel
+    cd notes
 
 Install all the dependencies using composer
 
