@@ -1,25 +1,11 @@
 <?php
 
-use App\Http\Controllers\Auth\Admin\LoginController;
-use App\Http\Controllers\Auth\Admin\RegisterController;
+use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Auth\RegisterController;
+use App\Http\Controllers\Admin\NotesController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return redirect()->route('painel.login');
-});
 
 Auth::routes();
 
@@ -33,4 +19,11 @@ Route::prefix('painel')->name('painel.')->group(function(){
     Route::post('register', [RegisterController::class, 'register']);
 
     Route::post('logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('notes/', [NotesController::class, 'index'])->name('notas.index');
+    Route::get('notes/form', [NotesController::class, 'create'])->name('notas.create');
+    Route::post('notes', [NotesController::class, 'store'])->name('notas.store');
+    Route::get('notes/form/{id}', [NotesController::class, 'edit'])->name('notas.edit');
+    Route::put('notes/form/{id}', [NotesController::class, 'update'])->name('notas.update');
+    Route::get('notes/delete/{id}', [NotesController::class, 'destroy'])->name('notas.destroy');
 });
