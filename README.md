@@ -105,4 +105,4 @@ You can now access the server at http://localhost:8000
 
 users: id, name, email, password and remember_token.
 
-settings: id, users_id, name and text.
+notas: id, users_id, name and text.
