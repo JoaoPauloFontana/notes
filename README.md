@@ -55,7 +55,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## About CMS - Content Management System
 
-Educational purposes. CMS stands for Content Management System. In a very straightforward way, a CMS allows you to create, organize, publish and delete content from your website.
+Educational purposes. I'm making a note system for each registered user. Each one will have their own notes, without being able to edit, or create the others.
 
 In the project, for the dashboard, I am using the adminLte (composer library).
 
