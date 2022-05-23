@@ -20,22 +20,24 @@
                     <th width="200">Ações</th>
                 </tr>
                 @foreach ($users->notas as $nota)
-                    {{-- @foreach ($user->notas as $notas) --}}
-                    {{-- @dd($user->notas) --}}
-                        {{-- @if ($user->id == $userLogged->id) --}}
-                            <tr>
-                                <td>{{ $i++ }}</td>
-                                <td>{{ $nota['name'] }}</td>
-                                <td>{{ $nota['text'] }}</td>
-                                <td></td>
-                            </tr>
-                        {{-- @endif --}}
-                    {{-- @endforeach --}}
+                    <tr>
+                        <td>{{ $i++ }}</td>
+                        <td>{{ $nota['name'] }}</td>
+                        <td>{{ $nota['text'] }}</td>
+                        <td>
+                            <a href="{{ route('painel.notas.edit', $nota->id) }}" class="btn btn-primary btn-sm">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                            <a href="{{ route('painel.notas.destroy', $nota->id) }}" class="btn btn-danger btn-sm">
+                                <i class="fa fa-trash"></i>
+                            </a>
+                        </td>
+                    </tr>
                 @endforeach
             </table>
         </div>
     </div>
 
-    {{-- {{ $users->notas->links('pagination::bootstrap-4') }} --}}
-
 @endsection
+
+<link rel="stylesheet" href="'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'">
