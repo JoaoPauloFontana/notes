@@ -4,10 +4,13 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Auth\RegisterController;
 use App\Http\Controllers\Admin\NotesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InicioController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Auth::routes();
+
+Route::get('/', [InicioController::class, 'index'])->name('inicio');
 
 Route::prefix('painel')->name('painel.')->group(function(){
     Route::get('/', [HomeController::class, 'index'])->name('home');
