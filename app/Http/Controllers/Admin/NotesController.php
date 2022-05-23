@@ -55,15 +55,44 @@ class NotesController extends Controller
         return redirect()->route('painel.notas.index');
     }
 
-    public function edit(){
+    public function edit($id){
+        $notas = Nota::find($id);
 
+        return view('controle.paginas.edit', compact('notas'));
     }
 
-    public function update(){
+    public function update(Request $req, $id){
+        $notas = Nota::find($id);
 
+        if($notas){
+            $data = $req->except('_token');
+
+            $validator = Validator::make($data, [
+                'name' => ['required', 'string', 'max:50'],
+                'text' => ['required', 'string', 'max:100']
+            ]);
+
+            if ($validator->fails()) {
+                return redirect()->route('painel.notas.create')
+                    ->withErrors($validator)
+                    ->withInput();
+            }
+
+            $userLogged = auth()->user();
+
+            $notas->name = $data['name'];
+            $notas->text = $data['text'];
+            $notas->users_id = $userLogged->id;
+            $notas->save();
+        }
+
+        return redirect()->route('painel.notas.index');
     }
 
-    public function destroy(){
+    public function destroy($id){
+        $notas = Nota::find($id);
+        $notas->delete();
 
+        return redirect()->route('painel.notas.index');
     }
 }
